@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+        window.onload = function(){
+            document.getElementById('btn').onclick = function(){
+                alert("Hello World");
+            };
+            var arr = [
+                {"name":"zc","age":20,"Place":"shanghai"},
+                {"name":"cjs","age":20,"Place":"shanghai"},
+                {"name":"hh","age":20,"Place":"shanghai"},
+            ];
+            for(var i =0 ;i<arr.length;i++)
+            {
+                alert(arr[i].name+":"+arr[i].age+":"+arr[i].Place);
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" id="btn" value="66666"/>
+</body>
+</html>
