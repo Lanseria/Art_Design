@@ -4,6 +4,40 @@
     <meta charset="UTF-8">
     <title></title>
     <script type="text/javascript">
+        function openNew(){
+            var sHeight=document.documentElement.scrollHeight;
+            var sWidth=document.documentElement.scrollWidth;
+            var wHeight=document.documentElement.clientHeight;
+            var wWidth=sWidth;
+            var oMask=document.createElement("div");
+            oMask.id="mask";
+            oMask.style.height=sHeight+'px';
+            oMask.style.width=sWidth+'px';
+            document.body.appendChild(oMask);
+            var oLogin = document.createElement("div");
+            oLogin.id="login";
+            oLogin.innerHTML='<div class="loginCon"><div id="close"></div> <h2>来这里登录</h2><p>如果您有一个帐户，请登录。</p><div class="email"><strong>Email Adress:</strong><sup>*</sup><br><input type="email" id="email" class="" value=""></div><div class="password"><strong>Password:</strong><sup>*</sup><br><input type="text" id="pwd" class="" value=""></div><div class="remember"><input class="niceCheck" type="checkbox" name="Remember_password"><span class="rem">Remember password</span></div><div class="submit"><input type="submit" id="btnlogin" value="登录"><a class="forgot" href="#">Forgot Your Password?</a><sup>*</sup><span>Required Field</span></div></div>';
+            document.body.appendChild(oLogin);
+            var dHeight=oLogin.offsetHeight;
+            var dWidth=oLogin.offsetWidth;
+
+            oLogin.style.left=(wWidth-dWidth)/2+"px";
+            oLogin.style.top=(wHeight-dHeight)/2+"px";
+
+            var oClose=document.getElementById("close");
+            oMask.onclick=oClose.onclick=function() {
+                document.body.removeChild(oMask);
+                document.body.removeChild(oLogin);
+            }
+        }
+        window.onload=function(){
+            var oBtn=document.getElementById("btnlogin");
+            oBtn.onclick=function(){
+                openNew();
+                oBtn.style.display='none';
+                };
+
+        };
         window.onload = function(){
             document.getElementById('btn').onclick = function(){
                 alert("Hello World");
